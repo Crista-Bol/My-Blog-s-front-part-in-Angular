@@ -13,13 +13,17 @@
                     <th>Header</th>
                     <th>Body</th>
                     <th>Image</th>
+                    <th>Published Date</th>
+                    <th>Comments</th>
                     <th></th>
                 </tr>
             </thead>
             <tr *ngFor="let pd of service.list">
                 <td>{{pd.header}}</td>
-                <td >{{pd.body}}</td>
-                <td>{{pd.image}}</td>
+                <td>{{pd.body}}</td>
+                <td><span *ngIf="pd.image">Yes</span></td>
+                <td>{{pd.pubDate|date}}</td>
+                <td>{{pd.comCount}}</td>
                 <td>
                     <i class="far fa-trash-alt fa-lg text-danger"></i>
                 </td>

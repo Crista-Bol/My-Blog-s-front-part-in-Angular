@@ -3,5 +3,6 @@ export class Article {
     header:string='';
     body:string='';
     image:string='';
-
+    pubDate:Date=new Date();
+    comCount:number=0;
 }

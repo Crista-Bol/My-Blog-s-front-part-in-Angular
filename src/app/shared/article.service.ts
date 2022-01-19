@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Article } from './article.model';
+import { Category } from './category.model';
 import {HttpClient} from '@angular/common/http';
 import { firstValueFrom, map, Observable, pipe } from 'rxjs';
 
@@ -9,8 +10,9 @@ import { firstValueFrom, map, Observable, pipe } from 'rxjs';
 export class ArticleService {
 
   formData: Article= new Article();
-  readonly baseURL = 'https://localhost:44310/Articles/GetAll';
+  readonly baseURL = 'https://localhost:44310';
   list : Article[];
+  cats: Category[];
 
   constructor(private http:HttpClient) { }
 
@@ -26,8 +28,19 @@ export class ArticleService {
   async refreshList() {
     console.log("refreshed");
     
-    this.http.get(this.baseURL).subscribe((res:any)=>{
+    this.http.get(this.baseURL+"/Articles/GetAll").subscribe(
+      (res:any)=>{
       this.list=res.data;
+      console.log(this.list);
+    });
+  }
+
+  getCats(){
+    
+    this.http.get(this.baseURL+"/Articles/ArtCategories").subscribe(
+      (res:any)=>{
+      this.cats=res.data;
+      console.log('Downloaded cats: '+this.cats);
     });
   }
 
