@@ -5,4 +5,5 @@ export class Article {
     image:string='';
     pubDate:Date=new Date();
     comCount:number=0;
+    catId:number=0;
 }

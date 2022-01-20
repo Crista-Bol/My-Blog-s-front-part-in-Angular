@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ArticleService } from 'src/app/shared/article.service';
 import { NgForm } from '@angular/forms';
 import { Article } from 'src/app/shared/article.model';
+import { Category } from 'src/app/shared/category.model';
 
 
 @Component({
@@ -12,16 +13,10 @@ import { Article } from 'src/app/shared/article.model';
 })
 export class ArticleFormComponent implements OnInit {
 
+  
   constructor(public service:ArticleService) { }
 
-  cats = [
-    { id: 1, name: "United States" },
-    { id: 2, name: "Australia" },
-    { id: 3, name: "Canada" },
-    { id: 4, name: "Brazil" },
-    { id: 5, name: "England" }
-  ];
-
+  selectedCat:any;
   ngOnInit(): void {
     
   }
@@ -32,7 +27,9 @@ export class ArticleFormComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    console.log(this.service.formData.catId);
     this.insertRecord(form);
+    
   }
 
   insertRecord(form: NgForm) {

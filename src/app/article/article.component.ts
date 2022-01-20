@@ -12,9 +12,8 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.refreshList();
+    this.service.getCats();
   }
-  // populateForm(selectedRecord) {
-	//   this.service.formData = Object.assign({}, selectedRecord);
-  // }
+  
 
 }

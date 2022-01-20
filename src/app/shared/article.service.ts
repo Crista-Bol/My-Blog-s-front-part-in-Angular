@@ -36,10 +36,10 @@ export class ArticleService {
   }
 
   getCats(){
-    
-    this.http.get(this.baseURL+"/Articles/ArtCategories").subscribe(
+    console.log('Pulling cats: ');
+    this.http.get(this.baseURL+"/api/artCats").subscribe(
       (res:any)=>{
-      this.cats=res.data;
+      this.cats=res;
       console.log('Downloaded cats: '+this.cats);
     });
   }
