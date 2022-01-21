@@ -15,8 +15,8 @@ export class ArticleFormComponent implements OnInit {
 
   
   constructor(public service:ArticleService) { }
-
-  selectedCat:any;
+  
+  selectedCat:number;
   ngOnInit(): void {
     
   }
@@ -26,8 +26,9 @@ export class ArticleFormComponent implements OnInit {
     this.service.formData = new Article();
   }
 
+ 
   onSubmit(form: NgForm) {
-    console.log(this.service.formData.catId);
+    console.log(this.service.formData.catId +' hihih ');
     this.insertRecord(form);
     
   }

@@ -2,8 +2,9 @@
     <input type="hidden" name="id" [value]="service.formData.id"/>
     <div class="form-group">
         <label>Article Category</label>
-        <select [(ngModel)]="service.formData.catId">
-            <option *ngFor="let cat of service.cats" [ngValue]="cat.id">{{cat.name}}</option>
+        <select name="cat" #cat="ngModel" [(ngModel)]="service.formData.catId">
+            <option disabled [ngValue]="0">Select Category</option>
+            <option  *ngFor="let cat of service.cats" [ngValue]="cat.id">{{cat.name}}</option>
         </select>
         
     </div>

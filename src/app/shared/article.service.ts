@@ -17,7 +17,7 @@ export class ArticleService {
   constructor(private http:HttpClient) { }
 
   postArticle() {
-    return this.http.post(this.baseURL, this.formData);
+    return this.http.post(this.baseURL+"/api/addArticle", this.formData);
   }
   putArticle() {
     return this.http.put(`${this.baseURL}/${this.formData.id}`, this.formData);
