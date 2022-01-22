@@ -20,10 +20,10 @@ export class ArticleService {
     return this.http.post(this.baseURL+"/api/addArticle", this.formData);
   }
   putArticle() {
-    return this.http.put(`${this.baseURL}/${this.formData.id}`, this.formData);
+    return this.http.put(`${this.baseURL}/api/updateArticle/${this.formData.id}`, this.formData);
   }
   deleteArticle(id: number) {
-    return this.http.delete(`${this.baseURL}/${id}`);
+    return this.http.delete(`${this.baseURL}/api/deleteArticle/${id}`);
   }
   async refreshList() {
     console.log("refreshed");

@@ -28,9 +28,10 @@ export class ArticleFormComponent implements OnInit {
 
  
   onSubmit(form: NgForm) {
-    console.log(this.service.formData.catId +' hihih ');
-    this.insertRecord(form);
-    
+    if(this.service.formData.id==0)
+      this.insertRecord(form);
+    else
+      this.putRecord(form);
   }
 
   insertRecord(form: NgForm) {
@@ -41,5 +42,13 @@ export class ArticleFormComponent implements OnInit {
       },
       err => { console.log(err); }
     )
+  }
+  putRecord(form: NgForm) {
+    this.service.putArticle().subscribe({
+      complete: ()=>{
+        this.service.refreshList();
+        console.log("Updated");
+      }
+    });
   }
 }

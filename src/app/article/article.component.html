@@ -19,13 +19,13 @@
                 </tr>
             </thead>
             <tr *ngFor="let pd of service.list">
-                <td>{{pd.header}}</td>
-                <td>{{pd.body}}</td>
-                <td><span *ngIf="pd.image">Yes</span></td>
-                <td>{{pd.pubDate|date}}</td>
-                <td>{{pd.comCount}} {{pd|json}}</td>
+                <td (click)="populateForm(pd)">{{pd.header}}</td>
+                <td (click)="populateForm(pd)">{{pd.body}}</td>
+                <td (click)="populateForm(pd)"><span *ngIf="pd.image">Yes</span></td>
+                <td (click)="populateForm(pd)">{{pd.pubDate|date}}</td>
+                <td (click)="populateForm(pd)">{{pd.comCount}}</td>
                 <td>
-                    <i class="far fa-trash-alt fa-lg text-danger"></i>
+                    <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.id)"></i>
                 </td>
             </tr>
         </table>
